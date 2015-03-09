@@ -21,6 +21,7 @@
             // Tries to connect to the ServerRouter
             try {
                 Socket = new Socket(routerName, SockNum);
+                Socket.setKeepAlive(true);
                 out = new PrintWriter(Socket.getOutputStream(), true);
                 in = new BufferedReader(new InputStreamReader(Socket.getInputStream()));
                 dis = new DataInputStream(Socket.getInputStream());

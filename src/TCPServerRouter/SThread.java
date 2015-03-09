@@ -58,7 +58,17 @@ public class SThread extends Thread
                     }
                 }
 		
-                if((inputLine = in.readLine()).equals("image"))
+                //initial send
+                inputLine = in.readLine();
+                System.out.println("Client/Server said: " + inputLine);
+                outputLine = inputLine;
+                if (outSocket != null)
+                {				
+                    outTo.println(outputLine); // writes to the destination
+                }
+                        
+                        
+                if((inputLine = in.readLine()).toLowerCase().equals("image"))
                 {
                     outputLine = inputLine; // passes the input from the machine to the output string for the destination
                     System.out.println("Client/Server said: " + inputLine);
