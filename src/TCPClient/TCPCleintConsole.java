@@ -7,8 +7,8 @@
            String routerName = "172.16.20.21";
            int SockNum = 5555; // port number
            String address ="172.16.20.21"; // destination IP (Server)
-           String file = "C:\\Users\\Cprice\\Desktop\\file-1000.txt";
-           String LogPath = "C:\\Users\\Cprice\\Desktop\\DistCompLog.txt";
+           String file = "C:\\Users\\Cprice\\Desktop\\DistComputingData\\file-1000.txt";
+           String LogPath = "C:\\Users\\Cprice\\Desktop\\DistComputingData\\DistCompLog.txt";
            
            FileWriter logFileWriter = new FileWriter(LogPath);
            BufferedWriter logger = new BufferedWriter(logFileWriter);
