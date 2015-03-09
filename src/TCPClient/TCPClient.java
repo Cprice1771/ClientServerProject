@@ -68,10 +68,11 @@ package TCPClient;
 
            // Tries to connect to the ServerRouter
             try {
-            Socket = new Socket(RouterName, Port);
-            out = new PrintWriter(Socket.getOutputStream(), true);
-            in = new BufferedReader(new InputStreamReader(Socket.getInputStream()));
-            os = new DataOutputStream(Socket.getOutputStream());
+                Socket = new Socket(RouterName, Port);
+                out = new PrintWriter(Socket.getOutputStream(), true);
+                in = new BufferedReader(new InputStreamReader(Socket.getInputStream()));
+                os = new DataOutputStream(Socket.getOutputStream());
+                dis = new DataInputStream(Socket.getInputStream());
             } 
             catch (UnknownHostException e) {
                System.err.println("Don't know about router: " + RouterName);

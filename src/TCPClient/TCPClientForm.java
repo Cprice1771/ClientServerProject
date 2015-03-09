@@ -76,7 +76,7 @@ public class TCPClientForm extends Application {
         grid.add(openButton, 0, 3);
         
         final TextField fileTextField = new TextField();
-        fileTextField.setText("C:\\Users\\Cprice\\Desktop\\DistComputingData\\file-1000.txt");
+        fileTextField.setText("C:\\Users\\Cprice\\Desktop\\DistComputingData\\avatar.jpg");
         grid.add(fileTextField, 1, 3);
         
         
