@@ -4,9 +4,9 @@
     public class TCPServer {
        public static void main(String[] args) throws IOException 
        {
-            String routerName = "172.16.20.121"; // ServerRouter host name
+            String routerName = "172.16.20.21"; // ServerRouter host name
             int SockNum = 5555; // port number
-            String address ="172.16.20.21"; // destination IP (Client)
+            String address ="172.16.20.121"; // destination IP (Client)
             String imageLocation = "C:\\Users\\Cprice\\Desktop\\image.jpg";
             
             // Variables for setting up connection and communication
@@ -14,6 +14,7 @@
             PrintWriter out = null; // for writing to ServerRouter
             BufferedReader in = null; // for reading form ServerRouter
             DataInputStream dis = null;
+            DataOutputStream os = null;
             InetAddress addr = InetAddress.getLocalHost();
             String host = addr.getHostAddress(); // Server machine's IP			
             FileOutputStream fout = new FileOutputStream(imageLocation);
@@ -25,6 +26,7 @@
                 out = new PrintWriter(Socket.getOutputStream(), true);
                 in = new BufferedReader(new InputStreamReader(Socket.getInputStream()));
                 dis = new DataInputStream(Socket.getInputStream());
+                os = new DataOutputStream(Socket.getOutputStream());
             } 
             catch (UnknownHostException e) 
             {
@@ -53,16 +55,20 @@
             System.out.println("Server said: " + fromServer);
             out.println(fromServer); // sending the converted message back to the Client via ServerRouter
             
-            if((fromServer = in.readLine()).equals("image"))
+            if((fromClient = in.readLine()).equals("image"))
             {
                 fromServer = fromClient.toUpperCase(); // converting received message to upper case
                 System.out.println("Server said: " + fromServer);
                 out.println(fromServer); // sending the converted message back to the Client via ServerRouter
+            
                 int i;
                 // Communication while loop
                 while ((i = dis.read()) > -1) 
                 {
+                    System.out.println("Client said: " + i);
                      fout.write(i);
+                     System.out.println("Server said: " + i);
+                     os.write(i);
                 }
             }
             else
@@ -70,6 +76,7 @@
                 fromServer = fromClient.toUpperCase(); // converting received message to upper case
                 System.out.println("Server said: " + fromServer);
                 out.println(fromServer); // sending the converted message back to the Client via ServerRouter
+            
                 // Communication while loop
                 while ((fromClient = in.readLine()) != null) 
                 {
