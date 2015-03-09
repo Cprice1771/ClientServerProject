@@ -4,10 +4,10 @@
     public class TCPServer {
        public static void main(String[] args) throws IOException 
        {
-            String routerName = "172.16.20.31"; // ServerRouter host name
+            String routerName = "172.16.20.21"; // ServerRouter host name
             int SockNum = 5555; // port number
-            String address ="172.16.20.31"; // destination IP (Client)
-            String imageLocation = "image.jpg";
+            String address ="172.16.20.121"; // destination IP (Client)
+            String imageLocation = "C:\\Users\\Cprice\\Desktop\\image.jpg";
             
             // Variables for setting up connection and communication
             Socket Socket = null; // socket to connect with ServerRouter
@@ -44,6 +44,13 @@
             out.println(address);// initial send (IP of the destination Client)
             fromClient = in.readLine();// initial receive from router (verification of connection)
             System.out.println("ServerRouter: " + fromClient);
+            
+            fromClient = in.readLine();// initial receive from client 
+            System.out.println("Client said: " + fromClient);
+
+            fromServer = fromClient.toUpperCase(); // converting received message to upper case
+            System.out.println("Server said: " + fromServer);
+            out.println(fromServer); // sending the converted message back to the Client via ServerRouter
             
             if(in.readLine().equals("image"))
             {

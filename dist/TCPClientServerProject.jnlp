@@ -11,7 +11,7 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TCPClientServerProject.jar" size="37766" download="eager" />
+    <jar href="TCPClientServerProject.jar" size="37831" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="TCPClientServerProject" >
     <param name="requiredFXVersion" value="2.2+"/>
