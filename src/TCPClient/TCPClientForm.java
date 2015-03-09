@@ -54,7 +54,7 @@ public class TCPClientForm extends Application {
         grid.add(serverAddrLabel, 0, 1);
 
         final TextField routerAddrTextField = new TextField();
-        routerAddrTextField.setText("172.16.20.31");
+        routerAddrTextField.setText("172.16.20.21");
         grid.add(routerAddrTextField, 1, 1);
         
         final TextField portBox = new TextField();
@@ -76,7 +76,7 @@ public class TCPClientForm extends Application {
         grid.add(openButton, 0, 3);
         
         final TextField fileTextField = new TextField();
-        fileTextField.setText("C:\\Users\\Cprice\\Desktop\\file-100.txt");
+        fileTextField.setText("C:\\Users\\Cprice\\Desktop\\DistComputingData\\file-1000.txt");
         grid.add(fileTextField, 1, 3);
         
         
@@ -113,7 +113,8 @@ public class TCPClientForm extends Application {
                     for(int i = 0; i < Integer.parseInt(sendTimes.getText()); i++)
                     {
                         try {
-                            String[] fileParts = fileTextField.getText().split(".");
+                            String file = fileTextField.getText();
+                            String[] fileParts = file.split("\\.");
                             String ext = fileParts[fileParts.length - 1];
                             
                             if(ext.equals("jpg") || ext.equals("jpeg") ||ext.equals("png"))

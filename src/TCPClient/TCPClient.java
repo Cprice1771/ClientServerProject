@@ -168,6 +168,7 @@ package TCPClient;
             try 
             {
                 Socket = new Socket(RouterName, Port);
+                Socket.setKeepAlive(true);
                 out = new PrintWriter(Socket.getOutputStream(), true);
                 in = new BufferedReader(new InputStreamReader(Socket.getInputStream()));
             } 
