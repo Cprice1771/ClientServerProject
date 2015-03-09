@@ -76,7 +76,7 @@ public class TCPClientForm extends Application {
         grid.add(openButton, 0, 3);
         
         final TextField fileTextField = new TextField();
-        fileTextField.setText("C:\\Users\\Cprice\\Desktop\\DistComputingData\\avatar.jpg");
+        fileTextField.setText("C:\\Users\\Cprice\\Desktop\\DistComputingData\\avatar.");
         grid.add(fileTextField, 1, 3);
         
         
@@ -86,7 +86,7 @@ public class TCPClientForm extends Application {
         
         final TextField sendTimes = new TextField();
         sendTimes.setText("2");
-        grid.add(sendTimes, 1, 4);
+        //grid.add(sendTimes, 1, 4);
         
         openButton.setOnAction(
             new EventHandler<ActionEvent>() {
@@ -110,8 +110,8 @@ public class TCPClientForm extends Application {
                     System.out.println("Server name: " + serverAddrBox.getText());
                     System.out.println("Router name: " + routerAddrTextField.getText());
                     System.out.println("Router port: " + portBox.getText());
-                    for(int i = 0; i < Integer.parseInt(sendTimes.getText()); i++)
-                    {
+                    //for(int i = 0; i < Integer.parseInt(sendTimes.getText()); i++)
+                    //{
                         try {
                             String file = fileTextField.getText();
                             String[] fileParts = file.split("\\.");
@@ -124,7 +124,7 @@ public class TCPClientForm extends Application {
                         } catch (IOException ex) {
                             Logger.getLogger(TCPClientForm.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                    } 
+                    //} 
                 }
             });
 
